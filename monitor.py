@@ -27,7 +27,7 @@ def main(stdscr):
         temp_val_refresh = check_CPU_temp()
         value = "CPU temperature "+str(temp_val_refresh)
         stdscr.addstr(0, 0, "Pi-monitor v1.0 \n")
-        stdscr.addstr(0,0, value)
+        stdscr.addstr(3,0, value)
         stdscr.refresh()            
 
     print("Pi-monitor is for Arm7 CPU's only")
