@@ -50,7 +50,7 @@ def main(stdscr):
     h, w = stdscr.getmaxyx()
     temp_val = check_CPU_temp()
     clock_speed = check_Clock_speed()
-    mem_val = mem_usage()
+    mem_val = memory_usage()
     value = "CPU temperature: "+str(temp_val)    
     clock_msg = "Clock Speed: "+str(clock_speed)
     mem_allocation = "RAM usage: "+str(mem_val)    
@@ -60,7 +60,7 @@ def main(stdscr):
         value = "CPU temperature "+str(temp_val_refresh)
         clock_speed_refresh = check_Clock_speed()
         clock_msg = "Clock speed: "+str(clock_speed_refresh)
-        mem_val = mem_usage()
+        mem_val = memory_usage()
         mem_allocation = "RAM usage: "+str(mem_val)        
 
         stdscr.addstr(0, 0, "Pi-monitor v1.0 \n")
