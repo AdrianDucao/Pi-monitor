@@ -43,6 +43,19 @@ def memory_usage():
     time.sleep(1)
     return mem
 
+def uptime():
+    err, uptime = subprocess.getstatusoutput('uptime -p')
+    
+    if not err:
+        val = uptime
+        try:
+           uptime_date = val
+        except ValueError:
+            pass
+
+    time.sleep(1)
+    return uptime_date
+ 
 
 def main(stdscr):
     stdscr.addstr(0, 0, "Pi-monitor v1.0 \n")
@@ -51,22 +64,31 @@ def main(stdscr):
     temp_val = check_CPU_temp()
     clock_speed = check_Clock_speed()
     mem_val = memory_usage()
+    uptime_val = uptime()
+
     value = "CPU temperature: "+str(temp_val)    
     clock_msg = "Clock Speed: "+str(clock_speed)
     mem_allocation = "RAM usage: "+str(mem_val)    
+    uptime_msg = "Uptime: "+str(uptime_val)    
 
     while(value !=  "CPU temperature Arm7 and up only"):
         temp_val_refresh = check_CPU_temp()
         value = "CPU temperature "+str(temp_val_refresh)
+        
         clock_speed_refresh = check_Clock_speed()
         clock_msg = "Clock speed: "+str(clock_speed_refresh)
+        
         mem_val = memory_usage()
         mem_allocation = "RAM usage: "+str(mem_val)        
+        
+        uptime_refresh = uptime()
+        uptime_msg = "Uptime: "+str(uptime_refresh)        
 
         stdscr.addstr(0, 0, "Pi-monitor v1.0 \n")
         stdscr.addstr(3,0, value)
         stdscr.addstr(4,0, clock_msg)
         stdscr.addstr(5,0, mem_allocation)
+        stdscr.addstr(6,0, uptime_msg)
         stdscr.refresh()            
 
     print("\n Pi-monitor is for Arm7 CPU's only ")
