@@ -31,7 +31,7 @@ def check_Clock_speed():
 
 def memory_usage():
     mem = "for Arm7 processors only"
-    err, msg = subprocess.getstatusoutput('vcgencmd get_mem arm')
+    err, msg = subprocess.getstatusoutput('free -m')
 
     if not err:
         mem_val = msg
@@ -47,14 +47,14 @@ def uptime():
     err, uptime = subprocess.getstatusoutput('uptime -p')
     
     if not err:
-        val = uptime
+        uptime
         try:
-           uptime_date = val
+           uptime
         except ValueError:
             pass
 
     time.sleep(1)
-    return uptime_date
+    return uptime
  
 
 def main(stdscr):
@@ -88,7 +88,7 @@ def main(stdscr):
         stdscr.addstr(3,0, value)
         stdscr.addstr(4,0, clock_msg)
         stdscr.addstr(5,0, mem_allocation)
-        stdscr.addstr(6,0, uptime_msg)
+        stdscr.addstr(8,0, uptime_msg)
         stdscr.refresh()            
 
     print("\n Pi-monitor is for Arm7 CPU's only ")
