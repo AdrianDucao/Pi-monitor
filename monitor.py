@@ -23,6 +23,6 @@ def main(stdscr):
 
     stdscr.addstr(0,0, msg)
     stdscr.refresh()    
-    
+    time.sleep(999)    
 
 curses.wrapper(main)
