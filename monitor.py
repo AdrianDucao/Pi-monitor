@@ -22,7 +22,7 @@ def main(stdscr):
     msg = "CPU "+str(temp)  
 
     stdscr.addstr(0,0, msg)
-    stdscr.refresh()    
-    time.sleep(999)    
+    stdscr.refresh()
+    stdscr.nodelay(1)    
 
 curses.wrapper(main)
