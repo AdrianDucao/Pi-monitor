@@ -7,7 +7,7 @@ CPU temperature 42.0
 Clock speed: frequency(48)=9002285444
 RAM usage: arm=948M
 ```
-a console user interface and gui to monitor your headless Raspberry Pi's system while on ssh or plugged in as regular desktop use.
+a console user interface to monitor headless Raspberry Pi's system while on ssh or plugged in as regular desktop use.
 
 ### Features
 note: only works with Arm Processors
