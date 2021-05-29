@@ -16,15 +16,18 @@ def check_CPU_temp():
     return temp
 
 def main(stdscr):
+    stdscr.refresh()
     h, w = stdscr.getmaxyx()
     temp_val = check_CPU_temp()
     value = "CPU temperature "+str(temp_val)  
     
-    while(value ==  "CPU temperature is for Raaspberry Pi only"):
-        stdscr.addstr(0,0, value)
+    while(value !=  "CPU temperature is for Raaspberry Pi only"):
+        reload(value)
+	stdscr.addstr(0,0, value)
         stdscr.refresh()            
     
     print("Pi-monitor is for Arm7 CPU's only")
+    stdscr.refresh()
     time.sleep(5)
 
 curses.wrapper(main)
