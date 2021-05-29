@@ -19,9 +19,10 @@ def check_CPU_temp():
 def main(stdscr):
     h, w = stdscr.getmaxyx()
     temp = check_CPU_temp()
-    msg = "CPU Temp is"+str(temp)  
+    msg = "CPU "+str(temp)  
 
     stdscr.addstr(0,0, msg)
     stdscr.refresh()    
-    time.sleep(3)
+    
+
 curses.wrapper(main)
