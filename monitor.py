@@ -17,6 +17,7 @@ def check_CPU_temp():
     return temp
 
 def main(stdscr):
+    stdscr.addstr(0, 0, "Pi-monitor v1.0 \n")
     stdscr.refresh()
     h, w = stdscr.getmaxyx()
     temp_val = check_CPU_temp()
