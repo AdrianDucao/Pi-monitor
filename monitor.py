@@ -73,16 +73,16 @@ def main(stdscr):
 
     while(value !=  "CPU temperature Arm7 and up only"):
         temp_val_refresh = check_CPU_temp()
-        value = "CPU temperature "+str(temp_val_refresh)
+        value = "[CPU temperature] "+str(temp_val_refresh)
         
         clock_speed_refresh = check_Clock_speed()
-        clock_msg = "Clock speed: "+str(clock_speed_refresh)
+        clock_msg = "[Clock speed:] "+str(clock_speed_refresh)
         
         mem_val = memory_usage()
-        mem_allocation = "RAM usage: "+str(mem_val)        
+        mem_allocation = "[RAM Usage:] \n"+str(mem_val)        
         
         uptime_refresh = uptime()
-        uptime_msg = "Uptime: "+str(uptime_refresh)        
+        uptime_msg = "[Uptime:] "+str(uptime_refresh)        
 
         stdscr.addstr(0, 0, "Pi-monitor v1.0 \n")
         stdscr.addstr(3,0, value)
