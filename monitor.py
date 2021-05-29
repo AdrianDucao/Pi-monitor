@@ -29,6 +29,20 @@ def check_Clock_speed():
     time.sleep(1)
     return clock
 
+def memory_usage()
+    mem = "for Arm7 processors only"
+    err, msg = subprocess.getstatusoutput('vcgencmd get_mem arm')
+
+    if not err:
+        mem_val = msg
+        try:
+            mem = mem_val
+        except ValueError:
+            pass
+
+    time.sleep(1)
+    return mem
+
 
 def main(stdscr):
     stdscr.addstr(0, 0, "Pi-monitor v1.0 \n")
@@ -36,18 +50,23 @@ def main(stdscr):
     h, w = stdscr.getmaxyx()
     temp_val = check_CPU_temp()
     clock_speed = check_Clock_speed()
+    mem_val = mem_usage()
     value = "CPU temperature: "+str(temp_val)    
     clock_msg = "Clock Speed: "+str(clock_speed)
+    mem_allocation = "RAM usage: "+str(mem_val)    
 
     while(value !=  "CPU temperature Arm7 and up only"):
         temp_val_refresh = check_CPU_temp()
         value = "CPU temperature "+str(temp_val_refresh)
         clock_speed_refresh = check_Clock_speed()
         clock_msg = "Clock speed: "+str(clock_speed_refresh)
-        
+        mem_val = mem_usage()
+        mem_allocation = "RAM usage: "+str(mem_val)        
+
         stdscr.addstr(0, 0, "Pi-monitor v1.0 \n")
         stdscr.addstr(3,0, value)
         stdscr.addstr(4,0, clock_msg)
+        stdscr.addstr(5,0, mem_allocation)
         stdscr.refresh()            
 
     print("\n Pi-monitor is for Arm7 CPU's only ")
