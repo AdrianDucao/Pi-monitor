@@ -1,28 +1,30 @@
 #!/usr/bin/env python3
 
-import time
 import curses
 import re, subprocess
-
+import time
 
 def check_CPU_temp():
-    temp = None
+    temp = "is for Raspberry Pi only"
     err, msg = subprocess.getstatusoutput('vcgencmd measure_temp')
     if not err:
-        m = re.search(r'-?\d\.?\d*', msg)   # a solution with a  regex
+        m = re.search(r'-?\d\.?\d*', msg) 
         try:
             temp = float(m.group())
-        except ValueError: # catch only error needed
+        except ValueError: 
             pass
-    return temp, msg
+    return temp
 
 def main(stdscr):
     h, w = stdscr.getmaxyx()
-    temp = check_CPU_temp()
-    msg = "CPU "+str(temp)  
-
-    stdscr.addstr(0,0, msg)
-    stdscr.refresh()
-    stdscr.nodelay(1)    
+    temp_val = check_CPU_temp()
+    value = "CPU temperature "+str(temp_val)  
+    
+    while(value ==  "CPU temperature is for Raaspberry Pi only"):
+        stdscr.addstr(0,0, value)
+        stdscr.refresh()            
+    
+    print("Pi-monitor is for Arm7 CPU's only")
+    time.sleep(5)
 
 curses.wrapper(main)
