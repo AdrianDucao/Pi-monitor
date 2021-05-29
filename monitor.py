@@ -5,7 +5,7 @@ import re, subprocess
 import time
 
 def check_CPU_temp():
-    temp = "is for Raspberry Pi only"
+    temp = "Arm7 and up only"
     err, msg = subprocess.getstatusoutput('vcgencmd measure_temp')
     if not err:
         m = re.search(r'-?\d\.?\d*', msg) 
@@ -14,6 +14,7 @@ def check_CPU_temp():
         except ValueError: 
             pass
     return temp
+    time.sleep(1)
 
 def main(stdscr):
     stdscr.refresh()
@@ -21,13 +22,16 @@ def main(stdscr):
     temp_val = check_CPU_temp()
     value = "CPU temperature "+str(temp_val)  
     
-    while(value !=  "CPU temperature is for Raaspberry Pi only"):
-        reload(value)
-	stdscr.addstr(0,0, value)
+    while(value !=  "CPU temperature Arm7 and up only"):
+        temp_val_refresh = check_CPU_temp()
+        value = "CPU temperature "+str(temp_val_refresh)
+        stdscr.addstr(0,0, value)
         stdscr.refresh()            
-    
+
     print("Pi-monitor is for Arm7 CPU's only")
     stdscr.refresh()
     time.sleep(5)
 
 curses.wrapper(main)
+
+
