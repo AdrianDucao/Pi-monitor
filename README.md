@@ -9,7 +9,7 @@ RAM usage: arm=948M
 Uptime: up 1 day, 14 hours, 50 minutes
 
 ```
-a console user interface to monitor headless Raspberry Pi's system while on ssh or plugged in as regular desktop use.
+a console user interface to monitor in real-time your headless Raspberry Pi's system while on ssh or plugged in as regular desktop use.
 
 ### Features
 note: only works with Arm Processors
