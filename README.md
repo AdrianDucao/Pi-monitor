@@ -20,7 +20,7 @@ note: only works with Arm Processors
 * RAM allocation
 * Uptime information
 
-### Install and Use
+### Setup
 ```
 $ ssh user@<ipaddress>
 
