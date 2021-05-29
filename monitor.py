@@ -13,8 +13,8 @@ def check_CPU_temp():
             temp = float(m.group())
         except ValueError: 
             pass
-    return temp
     time.sleep(1)
+    return temp
 
 def main(stdscr):
     stdscr.refresh()
