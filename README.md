@@ -3,10 +3,12 @@
 Pi-monitor v1.0
 
 
-CPU temperature 40.0
-Clock speed: frequency(48)=600117184
-RAM usage: arm=948M
-Uptime: up 1 day, 14 hours, 50 minutes
+[CPU temperature] 40.0
+[Clock speed:] frequency(48)=6001171840
+[RAM Usage:]
+              total        used        free      shared  buff/cache   available
+Mem:           3838         177        3075          60         585        3465
+[Uptime:] up 1 day, 15 hours, 39 minutes
 
 ```
 a console user interface to monitor in real-time your headless Raspberry Pi's system while on ssh or plugged in as regular desktop use.
