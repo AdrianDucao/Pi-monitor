@@ -42,8 +42,12 @@ def main(stdscr):
     while(value !=  "CPU temperature Arm7 and up only"):
         temp_val_refresh = check_CPU_temp()
         value = "CPU temperature "+str(temp_val_refresh)
+        clock_speed_refresh = check_Clock_speed()
+        clock_msg = "Clock speed: "+str(clock_speed)
+        
         stdscr.addstr(0, 0, "Pi-monitor v1.0 \n")
         stdscr.addstr(3,0, value)
+        stdscr.refresh()
         stdscr.addstr(4,0, clock_msg)
         stdscr.refresh()            
 
