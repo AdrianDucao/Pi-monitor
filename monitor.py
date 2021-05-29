@@ -22,7 +22,7 @@ def check_Clock_speed():
     if not err:
         m = re.search(r'-?\d\.?\d*', msg)
         try:
-            clock = float(m.group())
+            clock = m
         except ValueError:
             pass
 
@@ -47,7 +47,7 @@ def main(stdscr):
         stdscr.addstr(4,0, clock_msg)
         stdscr.refresh()            
 
-    print("Pi-monitor is for Arm7 CPU's only")
+    print("\n Pi-monitor is for Arm7 CPU's only ")
     stdscr.refresh()
     time.sleep(5)
 
