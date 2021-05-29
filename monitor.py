@@ -29,7 +29,7 @@ def check_Clock_speed():
     time.sleep(1)
     return clock
 
-def memory_usage()
+def memory_usage():
     mem = "for Arm7 processors only"
     err, msg = subprocess.getstatusoutput('vcgencmd get_mem arm')
 
