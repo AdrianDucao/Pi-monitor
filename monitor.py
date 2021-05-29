@@ -20,9 +20,9 @@ def check_Clock_speed():
     clock = "Arm7 and up only"
     err, msg = subprocess.getstatusoutput('vcgencmd measure_clock arm')
     if not err:
-        m = re.search(r'-?\d\.?\d*', msg)
+        val = msg
         try:
-            clock = m
+            clock = val
         except ValueError:
             pass
 
